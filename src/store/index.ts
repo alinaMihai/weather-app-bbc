@@ -9,8 +9,10 @@ import watchLocationSaga from './sagas';
 import { iLocation } from '../constants';
 
 export interface AppState {
-    weatherInfo: any;
-    currentLocation: iLocation;
+    location: {
+        weatherInfo: any;
+        currentLocation: iLocation;
+    };
 }
 
 const sagaMiddleware = createSagaMiddleware();
