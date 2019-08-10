@@ -1,9 +1,10 @@
 import React from 'react';
+import WeatherPage from './containers/WeatherPage';
 
 function App() {
     return (
         <div className='App'>
-            <h1>Hello</h1>
+            <WeatherPage />
         </div>
     );
 }
