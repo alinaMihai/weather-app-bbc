@@ -30,13 +30,13 @@ export const WeatherSummary: FC<iProps> = ({
     location = {} as iLocation,
     weatherSummary = { currently: {} } as iWeatherSummary,
 }) => {
-    const { summary, icon, temperature } = weatherSummary.currently || ({} as any);
+    const { summary = '', icon = '', temperature } = weatherSummary.currently || ({} as any);
     return (
         <StyledWeatherSummary>
             <h2>Weather in {location.name}</h2>
             {!weatherSummary.loading && (
                 <div>
-                    <div className="summary">
+                    <div className='summary'>
                         <span>{summary}</span>
                         <ReactAnimatedWeather
                             icon={icon
@@ -53,6 +53,7 @@ export const WeatherSummary: FC<iProps> = ({
                     </span>
                 </div>
             )}
+            {weatherSummary.loading && <div>Loading ...</div>}
         </StyledWeatherSummary>
     );
 };
