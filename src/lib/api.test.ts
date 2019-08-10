@@ -21,7 +21,7 @@ describe('requestWeatherByLocation success response', () => {
     it('given a location, it should do a call to the api to fetch its weather info', async function() {
         const response = await Api.requestWeatherByLocation(Locations[0]);
         expect(global.fetch).toHaveBeenCalledWith(
-            `${appConstants.API_WEATHER}${Locations[0].latitude},${Locations[0].longitude}`,
+            `${appConstants.API_WEATHER}${Locations[0].latitude},${Locations[0].longitude}?exclude=hourly,daily,minutely,alerts,flags`,
         );
         expect(response.Id).toBe('123');
     });
