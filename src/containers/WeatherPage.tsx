@@ -4,6 +4,7 @@ import { requestWeatherLocation } from '../actions';
 import { Locations, iLocation } from '../constants';
 import { AppState } from '../store';
 import { StyledWeatherPage } from './styles';
+import { LocationsComponent } from '../components/locationsComponent/Locations';
 
 interface iProps {
     location?: AppState;
@@ -19,13 +20,17 @@ const mapDispatchToProps = (dispatch: any): iDispatch => ({
 });
 
 export class WeatherPage extends React.Component<iProps & iDispatch> {
-    render() {
+    selectLocation = (location: iLocation) => {
+        this.props.requestWeatherLocation(location);
+    };
+    render = () => {
         return (
             <StyledWeatherPage>
                 <p>Please select a location</p>
+                <LocationsComponent locations={Locations} handleClick={this.selectLocation} />
             </StyledWeatherPage>
         );
-    }
+    };
 }
 
 export default connect(
