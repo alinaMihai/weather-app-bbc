@@ -10,7 +10,11 @@ export default function* watchLocationSaga() {
 }
 
 export function* makeApiRequest(action: { type: string; payload: iLocation }) {
-    const weatherInfo = yield call(Api.requestWeatherByLocation, action.payload);
-
-    yield put(putWeatherLocation(weatherInfo));
+    try {
+        yield put(putWeatherLocation({ loading: true }));
+        const weatherInfo = yield call(Api.requestWeatherByLocation, action.payload);
+        yield put(putWeatherLocation({ ...weatherInfo, loading: false }));
+    } catch (e) {
+        yield put(putWeatherLocation({ error: e, loading: false }));
+    }
 }
