@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { requestWeatherLocation } from '../actions';
 import { Locations, iLocation } from '../constants';
 import { AppState } from '../store';
+import { StyledWeatherPage } from './styles';
 
 interface iProps {
     location?: AppState;
@@ -20,9 +21,9 @@ const mapDispatchToProps = (dispatch: any): iDispatch => ({
 export class WeatherPage extends React.Component<iProps & iDispatch> {
     render() {
         return (
-            <div>
+            <StyledWeatherPage>
                 <p>Please select a location</p>
-            </div>
+            </StyledWeatherPage>
         );
     }
 }

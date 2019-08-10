@@ -4,9 +4,11 @@ import { Provider } from 'react-redux';
 
 import App from './App';
 import store from './store';
+import { GlobalStyle } from './assets/common-styles';
 
 ReactDOM.render(
     <Provider store={store}>
+        <GlobalStyle />
         <App />
     </Provider>,
     document.getElementById('root'),
