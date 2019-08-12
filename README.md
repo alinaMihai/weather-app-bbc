@@ -1,3 +1,29 @@
+Implemented scenarios: 
+1. See the weather in one of 5  prelisted locations
+	London,
+	Paris,
+	New York,
+	Singapore,
+	Sydney.
+  
+  As a user
+	When I visit the page,
+	I want to see a list of locations,
+	so that I know which locations are available.
+  
+2. As a user
+	When I select a location,
+	I want to see the current weather,
+	So that I know what the weather is for the location I selected.  
+  
+  Display the following information:
+	Location,
+	Current weather summary,
+	current weather temperature,
+	current weather icon.
+
+Used API: https://darksky.net/dev/docs for weather information
+
 Technologies used: 
 - Typescript
 - Redux
